@@ -7,10 +7,17 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#logout'
+  delete '/logout' => 'sessions#logout'
+
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+
+
+  resources :games do 
+    resources :posts
+  end
 
   resources :users
   resources :posts
   resources :comments
-  resources :games
+  
 end

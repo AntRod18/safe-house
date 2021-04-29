@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.references :user, null: false, foreign_key: true
       t.references :game, null: false, foreign_key: true
       t.text :content
+      t.text :game
       t.string :gamer_tag
       t.string :platform
 

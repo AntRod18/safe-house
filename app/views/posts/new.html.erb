@@ -1,0 +1,19 @@
+<h1> New Post </h1>
+
+<%= form_for(@post) do |f| %>
+
+    <%= f.label :game %>
+    <%= f.text_field :game %><br>
+
+    <%= f.label :gamer_tag %>
+    <%= f.text_field :gamer_tag %><br>
+
+    <%= f.label :content %>
+    <%= f.text_field :content %><br>
+
+    <%= f.label :platform %>
+    <%= f.text_field :platform %><br>
+
+    <%= f.submit %>
+
+<% end %>

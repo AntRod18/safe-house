@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_214308) do
     t.integer "user_id", null: false
     t.integer "game_id", null: false
     t.text "content"
+    t.text "game"
     t.string "gamer_tag"
     t.string "platform"
     t.datetime "created_at", precision: 6, null: false
@@ -44,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_04_23_214308) do
     t.string "email"
     t.string "password_digest"
     t.string "username"
+    t.string "uid"
+    t.string "provider"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
