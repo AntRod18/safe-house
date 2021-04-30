@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_214308) do
     t.integer "user_id", null: false
     t.integer "game_id", null: false
     t.text "content"
-    t.text "game"
+    t.text "game_name"
     t.string "gamer_tag"
     t.string "platform"
     t.datetime "created_at", precision: 6, null: false
