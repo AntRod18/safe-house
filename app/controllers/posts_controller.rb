@@ -18,12 +18,35 @@ class PostsController < ApplicationController
       end
     end
 
+    def edit
+      @post = Post.find_by(id: params[:id])
+      # add validation for game name
+    end
+
+    def update
+      @post = Post.find_by(id: params[:id])
+      @post.update(post_params)
+      if @post.valid?
+        redirect_to post_path(@post)
+      else
+        render :edit
+      end
+    end
+
     def index
         @posts = Post.all
     end
 
     def show
         @post = Post.find_by(id: params[:id])
+        @comments = @post.comments
+        @comment = Comment.new
+    end
+
+    def destroy
+      @post = Post.find_by(id: params[:id])
+      @post.destroy
+      redirect_to posts_path
     end
 
     

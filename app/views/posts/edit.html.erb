@@ -1,0 +1,17 @@
+<%= form_for(@post) do |f| %>
+
+    <%= f.label :game_name %>
+    <%= f.text_field :game_name %><br>
+
+    <%= f.label :gamer_tag %>
+    <%= f.text_field :gamer_tag %><br>
+
+    <%= f.label :content %>
+    <%= f.text_field :content %><br>
+
+    <%= f.label :platform %>
+    <%= f.text_field :platform %><br>
+
+    <%= f.submit "Edit" %>
+
+<% end %>

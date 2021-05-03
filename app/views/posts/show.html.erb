@@ -1,1 +1,24 @@
-<%= show_post %>
+<h2><%= @post.gamer_tag %></h2>
+<h3><%= @post.content %></h3>
+<h3><%= @post.game_name %></h3>
+<h3><%= @post.platform %></h3>
+
+<%= link_to "Edit Post", edit_post_path %>
+<%= link_to "Delete Post", post_path, method: :delete %><br><br><br>
+
+
+<h2> Comments: </h2>
+
+<% @post.comments.each do |com| %>
+<h4> <%= com.content %></h4><br>
+<% end %>
+
+<%= form_with(model: [@post, @comment]) do |f| %>
+    <%= f.label :comment %>
+    <%= f.text_field :content %><br>
+    <%= f.submit "Create Comment" %>
+<% end %>
+
+
+
+
