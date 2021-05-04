@@ -1,1 +1,5 @@
-<h1> You made it </h1>
+<h1> All posts for <%= @game.title %>: </h1>
+
+<% @game.posts.each do |gp| %>
+    <h3> <%= link_to "#{gp.content}", game_post_path(@game, gp) %></h3>
+<% end %>

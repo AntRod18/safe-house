@@ -1,10 +1,14 @@
 class GamesController < ApplicationController
 
-    def show
-        @game = Game.find(params[:id])
-    end
 
     def index
-        @game = Game.all
+        @games = Game.all
     end
+
+    def show
+        @game = Game.find_by(id: params[:id])
+        # binding.pry
+    end
+
+   
 end

@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     end
 
     def update
+      
       @post = Post.find_by(id: params[:id])
       @post.update(post_params)
       if @post.valid?
@@ -38,6 +39,8 @@ class PostsController < ApplicationController
     end
 
     def show
+      # binding.pry
+        @game = Game.find_by(id: params[:game_id])
         @post = Post.find_by(id: params[:id])
         @comments = @post.comments
         @comment = Comment.new
