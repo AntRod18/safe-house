@@ -1,5 +1,13 @@
 <h1> All Games</h1>
 
+<%= form_tag("/games", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
 <% @games.each do |game| %>
     <h3> <%= link_to "#{game.title}", game_path(game) %> </h3>
 <% end %>
+
+

@@ -3,3 +3,8 @@
 <% @game.posts.each do |gp| %>
     <h3> <%= link_to "#{gp.content}", game_post_path(@game, gp) %></h3>
 <% end %>
+
+<h1> All users with posts about <%= @game.title %>: </h1>
+
+<% @names = @user.collect {|user| user.username} %>
+    <h3> <%= @names.uniq.join() %> </h3>

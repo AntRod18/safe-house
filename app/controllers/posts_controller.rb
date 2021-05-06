@@ -2,10 +2,12 @@ require 'pry'
 class PostsController < ApplicationController
 
     def new
+      redirect_if_not_logged_in
         @post = Post.new
     end
 
     def create
+      redirect_if_not_logged_in
       # binding.pry
       @game = Game.find_or_create_by(title: post_params[:game_name])
       @post = Post.new(post_params)
@@ -19,8 +21,8 @@ class PostsController < ApplicationController
     end
 
     def edit
+      redirect_if_not_logged_in
       @post = Post.find_by(id: params[:id])
-      # add validation for game name
     end
 
     def update
@@ -35,11 +37,14 @@ class PostsController < ApplicationController
     end
 
     def index
+      redirect_if_not_logged_in
         @posts = Post.all
+        @game = Game.find_by(id: params[:game_id])
     end
 
     def show
       # binding.pry
+      redirect_if_not_logged_in
         @game = Game.find_by(id: params[:game_id])
         @post = Post.find_by(id: params[:id])
         @comments = @post.comments
@@ -47,6 +52,7 @@ class PostsController < ApplicationController
     end
 
     def destroy
+      redirect_if_not_logged_in
       @post = Post.find_by(id: params[:id])
       @post.destroy
       redirect_to posts_path
