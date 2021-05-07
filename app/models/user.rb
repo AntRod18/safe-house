@@ -4,6 +4,6 @@ class User < ApplicationRecord
     has_many :comments
     has_many :games, through: :posts
 
-    validates :user_name, :login, :email, presence: true
-    validates :user_name, :email, uniqueness: true
+    validates :username, :email, presence: true
+    validates :username, :email, uniqueness: true
 end
